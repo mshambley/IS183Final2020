@@ -3,7 +3,7 @@ import { Headers, Http } from '@angular/http';
 import { environment } from '../../environments/environment';
 
 @Injectable()
-export class BeverageService {
+export class UserService {
 
     private apiUrl: string;
 
@@ -13,40 +13,40 @@ export class BeverageService {
         this.apiUrl = environment.apiUrl;
     }
 
-    getBooks(): Promise<Array<Object>> {
-        return this.http.get(`${this.apiUrl}/book`)
+    getUsers(): Promise<Array<Object>> {
+        return this.http.get(`${this.apiUrl}/user`)
             .toPromise()
             .then((resp) => {
                 return resp.json();
             });
     }
 
-    getBookById(bookId): Promise<Object> {
-        return this.http.get(`${this.apiUrl}/book/id/${bookId}`)
+    getUserById(userId): Promise<Object> {
+        return this.http.get(`${this.apiUrl}/user/id/${userId}`)
             .toPromise()
             .then((resp) => {
                 return resp.json();
             });
     }
 
-    addBook(book): Promise<Object> {
-        return this.http.post(`${this.apiUrl}/book`, book)
+    addUser(user): Promise<Object> {
+        return this.http.post(`${this.apiUrl}/user`, user)
             .toPromise()
             .then((resp) => {
                 return resp.json();
             });
     }
 
-    deleteBook(id): Promise<Object> {
-        return this.http.delete(`${this.apiUrl}/book/id/${id}`)
+    deleteUser(id): Promise<Object> {
+        return this.http.delete(`${this.apiUrl}/user/id/${id}`)
             .toPromise()
             .then((resp) => {
                 return resp.json();
             });
     }
 
-    updateBook(id, book): Promise<Object> {
-        return this.http.put(`${this.apiUrl}/book/id/${id}`, book)
+    updateUser(id, user): Promise<Object> {
+        return this.http.put(`${this.apiUrl}/user/id/${id}`, user)
             .toPromise()
             .then((resp) => {
                 return resp.json();

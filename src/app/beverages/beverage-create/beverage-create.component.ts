@@ -19,7 +19,9 @@ export class BeverageCreateComponent implements OnInit {
   }
 
   async createBeverage(beverage: Object) {
-
+    const resp = await this.beverageService.addbeverages(beverage);
+    if (resp) {
+      this.router.navigate(['/beverages']);
   }
 
 }
